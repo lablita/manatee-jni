@@ -6,18 +6,18 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-package com.manatee.sketchengine;
+package com.sketchengine.manatee;
 
-public class FileAccessError {
+public class FastStream {
   private transient long swigCPtr;
   protected transient boolean swigCMemOwn;
 
-  protected FileAccessError(long cPtr, boolean cMemoryOwn) {
+  protected FastStream(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(FileAccessError obj) {
+  protected static long getCPtr(FastStream obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
@@ -30,18 +30,30 @@ public class FileAccessError {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        manateeJNI.delete_FileAccessError(swigCPtr);
+        manateeJNI.delete_FastStream(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  public FileAccessError(String filename, String where) {
-    this(manateeJNI.new_FileAccessError(filename, where), true);
+  public long next() {
+    return manateeJNI.FastStream_next(swigCPtr, this);
   }
 
-  public String __str__() {
-    return manateeJNI.FileAccessError___str__(swigCPtr, this);
+  public long peek() {
+    return manateeJNI.FastStream_peek(swigCPtr, this);
+  }
+
+  public long find(long pos) {
+    return manateeJNI.FastStream_find(swigCPtr, this, pos);
+  }
+
+  public boolean end() {
+    return manateeJNI.FastStream_end(swigCPtr, this);
+  }
+
+  public void collocs(IntVector colls) {
+    manateeJNI.FastStream_collocs(swigCPtr, this, IntVector.getCPtr(colls), colls);
   }
 
 }

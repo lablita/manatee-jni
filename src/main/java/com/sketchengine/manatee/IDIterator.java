@@ -6,18 +6,18 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-package com.manatee.sketchengine;
+package com.sketchengine.manatee;
 
-public class TextIterator {
+public class IDIterator {
   private transient long swigCPtr;
   protected transient boolean swigCMemOwn;
 
-  protected TextIterator(long cPtr, boolean cMemoryOwn) {
+  protected IDIterator(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(TextIterator obj) {
+  protected static long getCPtr(IDIterator obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
@@ -30,14 +30,22 @@ public class TextIterator {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        manateeJNI.delete_TextIterator(swigCPtr);
+        manateeJNI.delete_IDIterator(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  public String next() {
-    return manateeJNI.TextIterator_next(swigCPtr, this);
+  public int next() {
+    return manateeJNI.IDIterator_next(swigCPtr, this);
+  }
+
+  public int __getitem__(int array_index) {
+    return manateeJNI.IDIterator___getitem__(swigCPtr, this, array_index);
+  }
+
+  public int __len__() {
+    return manateeJNI.IDIterator___len__(swigCPtr, this);
   }
 
 }

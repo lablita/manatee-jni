@@ -6,17 +6,18 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-package com.manatee.sketchengine;
+package com.sketchengine.manatee;
 
-public class SubCorpus extends Corpus {
+public class AttrNotFound {
   private transient long swigCPtr;
+  protected transient boolean swigCMemOwn;
 
-  protected SubCorpus(long cPtr, boolean cMemoryOwn) {
-    super(manateeJNI.SubCorpus_SWIGUpcast(cPtr), cMemoryOwn);
+  protected AttrNotFound(long cPtr, boolean cMemoryOwn) {
+    swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(SubCorpus obj) {
+  protected static long getCPtr(AttrNotFound obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
@@ -29,19 +30,18 @@ public class SubCorpus extends Corpus {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        manateeJNI.delete_SubCorpus(swigCPtr);
+        manateeJNI.delete_AttrNotFound(swigCPtr);
       }
       swigCPtr = 0;
     }
-    super.delete();
   }
 
-  public SubCorpus(Corpus corp, String sub, boolean complement) {
-    this(manateeJNI.new_SubCorpus__SWIG_0(Corpus.getCPtr(corp), corp, sub, complement), true);
+  public AttrNotFound(String name) {
+    this(manateeJNI.new_AttrNotFound(name), true);
   }
 
-  public SubCorpus(Corpus corp, String sub) {
-    this(manateeJNI.new_SubCorpus__SWIG_1(Corpus.getCPtr(corp), corp, sub), true);
+  public String __str__() {
+    return manateeJNI.AttrNotFound___str__(swigCPtr, this);
   }
 
 }

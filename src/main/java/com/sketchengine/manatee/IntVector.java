@@ -6,7 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-package com.manatee.sketchengine;
+package com.sketchengine.manatee;
 
 public class IntVector extends java.util.AbstractList<Integer> implements java.util.RandomAccess {
   private transient long swigCPtr;
