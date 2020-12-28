@@ -6,18 +6,18 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-package com.manatee.sketchengine;
+package com.sketchengine.manatee;
 
-public class map_int_sort_bigrams {
+public class ConcNotFound {
   private transient long swigCPtr;
   protected transient boolean swigCMemOwn;
 
-  protected map_int_sort_bigrams(long cPtr, boolean cMemoryOwn) {
+  protected ConcNotFound(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(map_int_sort_bigrams obj) {
+  protected static long getCPtr(ConcNotFound obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
@@ -30,26 +30,18 @@ public class map_int_sort_bigrams {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        manateeJNI.delete_map_int_sort_bigrams(swigCPtr);
+        manateeJNI.delete_ConcNotFound(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  public map_int_sort_bigrams(String filename) {
-    this(manateeJNI.new_map_int_sort_bigrams(filename), true);
+  public ConcNotFound(String name) {
+    this(manateeJNI.new_ConcNotFound(name), true);
   }
 
-  public int maxid() {
-    return manateeJNI.map_int_sort_bigrams_maxid(swigCPtr, this);
-  }
-
-  public int count(int id) {
-    return manateeJNI.map_int_sort_bigrams_count(swigCPtr, this, id);
-  }
-
-  public int value(int id1, int id2) {
-    return manateeJNI.map_int_sort_bigrams_value(swigCPtr, this, id1, id2);
+  public String __str__() {
+    return manateeJNI.ConcNotFound___str__(swigCPtr, this);
   }
 
 }

@@ -6,18 +6,17 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-package com.manatee.sketchengine;
+package com.sketchengine.manatee;
 
-public class ConcNotFound {
+public class SubCorpus extends Corpus {
   private transient long swigCPtr;
-  protected transient boolean swigCMemOwn;
 
-  protected ConcNotFound(long cPtr, boolean cMemoryOwn) {
-    swigCMemOwn = cMemoryOwn;
+  protected SubCorpus(long cPtr, boolean cMemoryOwn) {
+    super(manateeJNI.SubCorpus_SWIGUpcast(cPtr), cMemoryOwn);
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(ConcNotFound obj) {
+  protected static long getCPtr(SubCorpus obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
@@ -30,18 +29,19 @@ public class ConcNotFound {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        manateeJNI.delete_ConcNotFound(swigCPtr);
+        manateeJNI.delete_SubCorpus(swigCPtr);
       }
       swigCPtr = 0;
     }
+    super.delete();
   }
 
-  public ConcNotFound(String name) {
-    this(manateeJNI.new_ConcNotFound(name), true);
+  public SubCorpus(Corpus corp, String sub, boolean complement) {
+    this(manateeJNI.new_SubCorpus__SWIG_0(Corpus.getCPtr(corp), corp, sub, complement), true);
   }
 
-  public String __str__() {
-    return manateeJNI.ConcNotFound___str__(swigCPtr, this);
+  public SubCorpus(Corpus corp, String sub) {
+    this(manateeJNI.new_SubCorpus__SWIG_1(Corpus.getCPtr(corp), corp, sub), true);
   }
 
 }

@@ -6,18 +6,18 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-package com.manatee.sketchengine;
+package com.sketchengine.manatee;
 
-public class EvalQueryException {
+public class FileAccessError {
   private transient long swigCPtr;
   protected transient boolean swigCMemOwn;
 
-  protected EvalQueryException(long cPtr, boolean cMemoryOwn) {
+  protected FileAccessError(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(EvalQueryException obj) {
+  protected static long getCPtr(FileAccessError obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
@@ -30,18 +30,18 @@ public class EvalQueryException {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        manateeJNI.delete_EvalQueryException(swigCPtr);
+        manateeJNI.delete_FileAccessError(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  public EvalQueryException(String name) {
-    this(manateeJNI.new_EvalQueryException(name), true);
+  public FileAccessError(String filename, String where) {
+    this(manateeJNI.new_FileAccessError(filename, where), true);
   }
 
   public String __str__() {
-    return manateeJNI.EvalQueryException___str__(swigCPtr, this);
+    return manateeJNI.FileAccessError___str__(swigCPtr, this);
   }
 
 }

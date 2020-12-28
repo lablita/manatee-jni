@@ -6,18 +6,18 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-package com.manatee.sketchengine;
+package com.sketchengine.manatee;
 
-public class AttrNotFound {
+public class EvalQueryException {
   private transient long swigCPtr;
   protected transient boolean swigCMemOwn;
 
-  protected AttrNotFound(long cPtr, boolean cMemoryOwn) {
+  protected EvalQueryException(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(AttrNotFound obj) {
+  protected static long getCPtr(EvalQueryException obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
@@ -30,18 +30,18 @@ public class AttrNotFound {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        manateeJNI.delete_AttrNotFound(swigCPtr);
+        manateeJNI.delete_EvalQueryException(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  public AttrNotFound(String name) {
-    this(manateeJNI.new_AttrNotFound(name), true);
+  public EvalQueryException(String name) {
+    this(manateeJNI.new_EvalQueryException(name), true);
   }
 
   public String __str__() {
-    return manateeJNI.AttrNotFound___str__(swigCPtr, this);
+    return manateeJNI.EvalQueryException___str__(swigCPtr, this);
   }
 
 }

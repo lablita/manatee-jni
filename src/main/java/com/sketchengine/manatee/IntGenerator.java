@@ -6,7 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-package com.manatee.sketchengine;
+package com.sketchengine.manatee;
 
 public class IntGenerator {
   private transient long swigCPtr;
